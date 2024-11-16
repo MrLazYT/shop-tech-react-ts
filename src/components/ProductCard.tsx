@@ -18,7 +18,7 @@ import Typography from '@mui/material/Typography';
 
 const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imagePath, categoryId, categoryName })=> {
     return (
-        <Card sx={{ height: '100%' }}>
+        <Card sx={{ height: '100%',maxWidth:240 }}>
         <CardMedia
           sx={{ height: 160, backgroundSize: 'contain'}}
           image={imagePath}
