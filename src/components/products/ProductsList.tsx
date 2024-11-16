@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IProductDto } from "../types/product";
+import { IProductDto } from "../../types/product";
 import ProductCard from "./ProductCard";
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
