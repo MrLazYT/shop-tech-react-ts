@@ -22,3 +22,7 @@ code {
   flex-direction: column;
   gap: 10px;
 }
+
+.divider {
+  display: inline;
+}

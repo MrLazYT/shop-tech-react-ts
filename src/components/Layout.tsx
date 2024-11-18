@@ -9,8 +9,13 @@ const Layout=()=>{
         <>
         <header>
             <Link to={"/"}>Home</Link>
+            <p className="divider"> | </p>
             <Link to={"/products"}>Products</Link>
+            <p className="divider"> | </p>
+            <Link to={"/create-product"}>Create Product</Link>
+            <p className="divider"> | </p>
             <Link to={"/login"}>Login</Link>
+            <p className="divider"> | </p>
             <Link onClick={logoutHandler} to={"/"}>Logout</Link>
 
         </header>
