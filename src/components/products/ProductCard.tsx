@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { url } from "inspector";
+import noImage from "../../../src/assets/images/no-image.jpg"
 // export default function ProductCard({ id, title, description, price, imagePath, categoryId, categoryName }: IProductDto) {
 //     return (
 //         <div> 
@@ -21,7 +23,7 @@ const ProductCard:React.FC<IProductDto>=({ id, title, description, price, imageP
         <Card sx={{ height: '100%',maxWidth:240 }}>
         <CardMedia
           sx={{ height: 160, backgroundSize: 'contain'}}
-          image={imagePath}
+          image={imagePath || noImage}
           title={title}
         />
         <CardContent>

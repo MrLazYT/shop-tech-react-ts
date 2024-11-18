@@ -1,6 +1,5 @@
 import { instance } from "../api/axios.api"
-import { getTokenFromLocalStorage } from "../helper/localStorage.helper"
-import { IProductDto } from "../types/product"
+import { ICreateProductDto, IProductDto } from "../types/product"
 // let headers={
 //     Authorization: 'Bearer '+getTokenFromLocalStorage()||'',
 // }
@@ -14,8 +13,12 @@ import { IProductDto } from "../types/product"
 
 export const ProductService={
     async products():Promise<IProductDto[]|undefined>{
-        const result=await instance.get<IProductDto[]>('products')
+        const result=await instance.get<IProductDto[]>('products');
         return result.data;
-    }
+    },
 
+    async create(product : ICreateProductDto) : Promise<void>
+    {
+        const result = await instance.post('products', product);
+    }
 }
