@@ -3,9 +3,12 @@ import TextField from '@mui/material/TextField';
 import { useForm } from "react-hook-form";
 import { ILoginDto } from "../../types/user";
 import { AuthService } from "../../services/auth.service";
+import { setTokenToLocalStorage } from "../../helper/localStorage.helper";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
     //react-hook-form
+    const  navigate=useNavigate();
     const {
         register, // to attrack changes of form inputs
         handleSubmit, //onSubmit event handler
@@ -14,10 +17,14 @@ const Login: React.FC = () => {
 
     const onSubmit = async (user: ILoginDto) => {
         try {
-            alert(user.email);
-            alert(user.password);
+            // alert(user.email);
+            // alert(user.password);
             const token = await AuthService.login(user);
-            alert(token);
+            if (token){
+                console.log(token);
+                setTokenToLocalStorage(token);
+                navigate("/products");
+            }
         } catch (err: any) {
 
             const error = err.response?.data.message;

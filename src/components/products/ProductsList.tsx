@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid2';
 import { Stack } from "@mui/material";
 import Skeleton from '@mui/material/Skeleton';
+import { ProductService } from "../../services/products.service";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -48,14 +49,20 @@ const ProductsList: React.FC = () => {
     }
 
     useEffect(() => {
-        fetch(api)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setProducts(data);
-                // console.log(products);
-            }).catch(err => console.error(err));
-
+        // fetch(api)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         setProducts(data);
+        //         // console.log(products);
+        //     }).catch(err => console.error(err));
+        const dataFetch=async ()=>{
+            const data=await ProductService.products();
+            setProducts(data);
+        }
+        dataFetch().catch(err=>{
+            console.error(err);
+        })
     }, []);
 
     return (
