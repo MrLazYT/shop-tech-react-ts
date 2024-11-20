@@ -19,6 +19,6 @@ export const ProductService={
 
     async create(product : ICreateProductDto) : Promise<void>
     {
-        const result = await instance.post('products', product);
+        const result = await instance.post('products/create', product);
     }
 }
